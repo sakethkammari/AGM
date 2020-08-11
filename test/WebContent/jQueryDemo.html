@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#newrow").click(function()
+			{
+		         var addcontrols="<tr>"
+		        	addcontrols+="<td><input type='text' name='sno' placeholder='Enter S No '></td>"
+		        	addcontrols+="<td><input type='text' name='sname' placeholder='Enter Name '></td>"
+		        	addcontrols+="<td><input type='text' name='status' placeholder='Status '></td>"
+		        		addcontrols+="<td><input type='text' name='assignedby' placeholder='Enter Name '></td>"
+		        			addcontrols+="</tr>";
+		        			$("table tbody").append(addcontrols);
+			})
+});
+
+</script>
+
+</head>
+<body>
+
+<center>
+	<h2>Jquery Test Dynamic </h2>
+	<hr/>
+</center>
+
+<table border="1">
+	<thead style="color:red;">
+		<tr>
+			<th>S.No</th>
+			<th>Story Name</th>
+			<th>Status</th>
+			<th>Assigned by </th>
+		</tr>
+	</thead>
+	
+	<tbody>
+	</tbody>
+	
+	<tfoot>
+		<tr>
+			<td>
+			<input type="button" value="new row" id="newrow">
+			</td>
+		</tr>
+	</tfoot>
+</table>
+
+
+
+</body>
+</html>
