@@ -6,11 +6,13 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class servletmail
@@ -35,16 +37,20 @@ public class servletmail extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	
 		  String result;
-
+		  HttpSession s = request.getSession();
 		    // Get recipient's email-ID, message & subject-line from index.html page
 
-		  //  final String to =  request.getParameter("mail");
-		    final String to = "sakethkammari629@gmail.com";
-		    	//	System.out.println(to+"ooooooooooo");
+		   // final String to =  request.getParameter("fmailf");
+		    //System.out.println("mail 545"+to);
+		  //  final String to = "sakethkammari629@gmail.com";
+		   final String to = ""+s.getAttribute("assign2");
+		  	System.out.println(to+"ooo7oooooooo");
 		  //  final String subject = request.getParameter("sub");
-		      final String subject="sevlrt mail test";
-		   final String messg = "Sample message09009";
-		    //final String messg =  request.getParameter("mess");
+		    //  final String subject="Story 444444444 Details";
+		  final String subject=""+s.getAttribute("sname");
+		  
+		  final String messg = ""+s.getAttribute("sres");
+		    //final String messg =  "ftestttt";
 		 
 
 		    // Sender's email ID and password needs to be mentioned
@@ -149,7 +155,12 @@ public class servletmail extends HttpServlet {
 		    }
 	
 	
-	
+		  String ff=  ""+s.getAttribute("fmailf");
+		    request.setAttribute("fmailf", ff);
+		  RequestDispatcher rd=request.getRequestDispatcher("Welcome_Admin.jsp");  
+			  
+			rd.forward(request, response);
+		    //response.sendRedirect("Welcome_Admin.jsp");
 	}
 
 	/**

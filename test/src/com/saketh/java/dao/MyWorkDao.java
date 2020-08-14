@@ -77,7 +77,8 @@ public class MyWorkDao {
 			  
 			//getting the record of 3rd row  
 			//rs.absolute(3);  
-			if(rs.next())
+			String F_res="";
+			while(rs.next())
 			{
 			//System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3));  
 			
@@ -85,12 +86,12 @@ public class MyWorkDao {
 				String F_storyname = rs.getString("storyname");
 				String F_status = rs.getString("status");
 					
-				String F_res =(F_id+"")+" "+F_storyname+" "+F_status;
+				F_res = F_res + ( (F_id+"")+" "+F_storyname+" "+F_status )+"\n";
 				System.out.println("dao -> "+F_res+"f");
-				return F_res;
+				
 			} 
-			
-			con.close();
+			return F_res;
+			//con.close();
 		}
 		catch (Exception e) {
 			// TODO: handle exception

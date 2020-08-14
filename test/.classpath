@@ -27,5 +27,6 @@
 	<classpathentry kind="lib" path="C:/Users/saketh/Downloads/activation.jar/activation.jar"/>
 	<classpathentry kind="lib" path="C:/Users/saketh/Desktop/jstll/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/saketh/Desktop/jstll/jstl-standard.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

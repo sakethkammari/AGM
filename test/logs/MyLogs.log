@@ -1,0 +1,15 @@
+[TRACE] 2020-08-13 18:20:55.987 [main] log4jDemo - this is info logger
+[WARN ] 2020-08-13 18:20:56.007 [main] log4jDemo - this is info warn
+[ERROR] 2020-08-13 18:20:56.007 [main] log4jDemo - this is info error
+[INFO ] 2020-08-13 18:20:56.008 [main] log4jDemo - this is info info
+[FATAL] 2020-08-13 18:20:56.008 [main] log4jDemo - this is info fatal
+[TRACE] 2020-08-13 18:21:55.595 [main] log4jDemo - this is info trace
+[WARN ] 2020-08-13 18:21:55.625 [main] log4jDemo - this is info warn
+[ERROR] 2020-08-13 18:21:55.626 [main] log4jDemo - this is info error
+[INFO ] 2020-08-13 18:21:55.626 [main] log4jDemo - this is info info
+[FATAL] 2020-08-13 18:21:55.627 [main] log4jDemo - this is info fatal
+[TRACE] 2020-08-13 18:24:41.393 [main] log4jDemo - this is info trace
+[WARN ] 2020-08-13 18:24:41.418 [main] log4jDemo - this is info warn
+[ERROR] 2020-08-13 18:24:41.419 [main] log4jDemo - this is info error
+[INFO ] 2020-08-13 18:24:41.420 [main] log4jDemo - this is info info
+[FATAL] 2020-08-13 18:24:41.420 [main] log4jDemo - this is info fatal

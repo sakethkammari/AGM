@@ -19,6 +19,20 @@
 </style>
 
 
+<!-- <script> -->
+<%-- // 	var f='${fres12}'; --%>
+<!-- // 	window.alert('ff'+f); -->
+<!-- </script> -->
+
+<script>
+// $(document).ready(function() {
+  
+//    var rr = "<c:out value='${fres12}'/>";
+// 	alert(rr+"testing");
+//   }
+</script>
+
+
 </head>
 <body>
 
@@ -37,7 +51,7 @@ param
 <table class="table table-striped table-dark">
   <thead>
     <tr>
-  		<p> </p>
+  		
       <th scope="col">id</th>
       <th scope="col">story name</th>
       <th scope="col">feature</th>
@@ -47,58 +61,8 @@ param
        <th scope="col">status</th>
     </tr>
   </thead>
-  
-  
-<!--   <script> -->
-<!-- //   <script> -->
-<!--    var foo = document.getElementById('foo'); -->
-<!--     alert(foo+'doneee'); -->
-<!--    foo.textContent = "bar"; -->
-<!--   </script> -->
-  </script>
-  
- 	<script>
- 	
-		window.onload = function(){
-	//
-	
-// 	  var foo = document.getElementById('foo');
-//   alert(foo+'doneee');
-//   foo.textContent = "bar";
-	
-	
-	
-	
-	var fresf='${fres}';
-	window.alert('WWWgggg');
-	console.log(fresf);
-	console.log('oh bhai !!!!!!11');
-	var strarray=fresf.split("\n");
-	var i;
-	for( i=0;i<strarray.length;i++)
-		{
-		var temp=strarray[i].split(" ");
-		
-		console.log(temp[0]+'::temo[0]')
-		var addcontrols="<tr>"
-	    	addcontrols+="<td>   '"+temp[0]+"'  </td>"
-	    	addcontrols+="<td>   '"+temp[1]+"'   </td>"
-	    	addcontrols+="<td>   '"+temp[2]+"' </td>"
-	    	addcontrols+="<td>   '"+temp[3]+"'   </td>"
-	    	addcontrols+="<td>   '"+temp[4]+"'   </td>"
-	    	addcontrols+="<td>   '"+temp[5]+"' </td>"
-	    	addcontrols+="<td>   '"+temp[6]+"'   </td>"
-	    	
-	    	addcontrols+="</tr>";
-	    			$("table tbody").append(addcontrols);
-		
-		}
-	
-	
-	//window.alert(fres+'jersyyyyyyyyy');
-};
- 
-</script>
+   
+
   <tbody>
   
 <!--     <tr> -->
@@ -115,5 +79,69 @@ param
   </tbody>
 </table>
 </div>
+
+
+
+<!--   <script> -->
+<!-- //   <script> -->
+<!--    var foo = document.getElementById('foo'); -->
+<!--     alert(foo+'doneee'); -->
+<!--    foo.textContent = "bar"; -->
+<!--   </script> -->
+<!--   </script> -->
+  
+ 	<script>
+ 	
+		window.onload = function(){
+	//
+	
+// 	  var foo = document.getElementById('foo');
+//   alert(foo+'doneee');
+//   foo.textContent = "bar";
+	
+	
+	
+	
+	//var fresf='${fres}';
+	//window.alert('WWWgggg'+fresf);
+	//var fresf = "<c:out value='${fres12}'/>";
+	//window.alert(fresf+"fresfff");
+	//console.log(fresf);
+	//console.log('oh bhai !!!!!!11');
+	BeanTest bt=new BeanTest();
+	var fresf=bt.getFres();
+	var strarray=fresf.split("\n");
+	<%
+		String id="OK";
+		out.print(id);
+	%>
+	console.log('');
+	var i;
+	for( i=0;i<strarray.length;i++)
+		{
+		var temp=strarray[i].split(" ");
+		
+		console.log(temp[0]+'::temo[0]')
+		var addcontrols="<tr>"
+	    	addcontrols+="<td>   '"+temp[0]+"'  </td>"
+	    	addcontrols+="<td>   '"+temp[1]+"'   </td>"
+	    	addcontrols+="<td>   '"+temp[2]+"' </td>"
+	    	addcontrols+="<td>   '"+temp[3]+"'   </td>"
+	    	addcontrols+="<td>   '"+temp[4]+"'   </td>"
+	    	addcontrols+="<td>   '"+temp[5]+"' </td>"
+	    	addcontrols+="<td>   '"+temp[6]+"'   </td>"
+	    	
+	    	addcontrols+="</tr>";
+	    			$(".tr1 table tbody").append(addcontrols);
+		
+		}
+	
+	
+	//window.alert(fres+'jersyyyyyyyyy');
+};
+ 
+</script>
+
+
 </body>
 </html>

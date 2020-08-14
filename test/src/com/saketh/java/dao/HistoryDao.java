@@ -12,7 +12,7 @@ public class HistoryDao {
 		//System.out.println("called cons");
 	}
 	
-	public String check(String nothing) throws Exception
+	public String check() throws Exception
 	{
 		try {
 			System.out.println(" inside check bro");
@@ -49,7 +49,7 @@ public class HistoryDao {
 				
 				
 			}
-			
+			System.out.println(res+"res final test111111111");
 			return res;
 			
 			
@@ -62,7 +62,7 @@ public class HistoryDao {
 		
 		
 		
-		return nothing;
+		return "";
 	
 	}
 	

@@ -3,9 +3,9 @@ import java.sql.*;
 public class MyWorkDaoNew {
 
 	
-	public String get(String uname) throws Exception
+	public String get(String umail) throws Exception
 	{
-		
+		System.out.println("3333"+umail+"22222");
 	
 		try {
 			//System.out.println(" inside check bro");
@@ -13,7 +13,7 @@ public class MyWorkDaoNew {
 			String username="root";
 			String password="root"; 
 			String url="jdbc:mysql://localhost:3306/"+db+"?user"+username+"&password"+password+"&useUnicode=true&characterEncoding=UTF-8";
-			String query=" select id,storyname,status from story_cred where assign_to=(select uemail from basic_cred where uemail='"+uname+"') ";
+			String query=" select id,storyname,status from story_cred where assign_to=(select uemail from basic_cred where uemail='"+umail+"') ";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			              //com.mysql.jdbc.Driver
 			Connection con=DriverManager.getConnection(url, username, password);
@@ -33,25 +33,24 @@ public class MyWorkDaoNew {
 //			{
 //				System.out.println(e+"exception");
 //			}
-			if(rs.next() )//&& res)
+			 String fmail="";
+			// int k=0,k1=0,k2=0;
+			while( rs.next() )//&& res)
 			{
 				System.out.println(" inside rs.next() email");
 //				a.setAid(rs.getInt("aid"));
 //				a.setAname(rs.getString("aname"));
 //				a.setCourse(rs.getString("course"));
-			       int id=rs.getInt(1);
-			       String  sname=rs.getString(2);
-			       String status = rs.getString(3);
-				String fres=id+" "+sname+" "+status;
+			       int id=rs.getInt("id");
+			       String  sname=rs.getString("storyname");
+			       String status = rs.getString("status");
+				fmail= (fmail + id+" "+sname+" "+status )+"\n";
 				
-				return fres;
+				
 			}
-			else
-			{
-				System.out.println(" inside email chck ");
-				//return false;
-			}
-			//return a;
+			System.out.println("11111111111111"+fmail+"111111111111111111111111");
+			return fmail;
+			
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -76,19 +75,17 @@ public class MyWorkDaoNew {
 			Connection con=DriverManager.getConnection(url, username, password);
 			PreparedStatement st=con.prepareStatement(query);
 			 ResultSet rs=st.executeQuery();
-			 if(rs.next() )//&& res)
+			 String fr1="";
+			 while(rs.next())//&& res)
 				{
 					//System.out.println(" inside rs.next() email");
-
+				 		
+				 
 				      return rs.getString(1);
 					
 					
 				}
-				else
-				{
-					System.out.println(" inside chck ");
-					//return false;
-				}
+				
 				//return a;
 				
 			} catch (Exception e) {

@@ -15,7 +15,11 @@
 <body>
 
 jkjkjkjkj
+
 ${fres}
+
+
+
 jkjjkjkjk
 <%
 System.out.println("okay fres");
@@ -35,9 +39,9 @@ System.out.println("okay fres");
 <!-- // 		rd.forward(request, response); -->
 <%-- 	%> --%>
 		
-  <jsp:forward page="History.jsp" >
+  <jsp:forward page="dummy4.jsp" >
  
-    <jsp:param name="fres" value="${fres}"/>
+    <jsp:param name="fres12" value="${fres}"/>
  
  </jsp:forward>
 

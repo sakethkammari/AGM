@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.saketh.java.dao.MyWorkDao;
 import com.saketh.java.dao.MyWorkDaoNew;
 
 /**
@@ -42,9 +43,17 @@ public class NewWorkController extends HttpServlet {
 		String res="";
 		try {
 			
-			String mail=dao.get(s1);
+			String mail=dao.get_mail(s1);
+			MyWorkDao d=new MyWorkDao();
 			
-			res=mail;
+			String fr=d.get(mail);
+			System.out.println("frfrfrfrf"+"\n"+fr+"\n");
+			request.setAttribute("fr", fr);
+			RequestDispatcher rd = request.getRequestDispatcher("Welcome_user.jsp");  
+			
+			  
+			rd.forward(request, response);
+			//res=mail;
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -54,16 +63,16 @@ public class NewWorkController extends HttpServlet {
 				
 		
 		
-		request.setAttribute("fres", res);
+		//request.setAttribute("fres", res);
 		System.out.println("fres inside ..");
-		request.setAttribute("uname2", s1);
+		//request.setAttribute("uname2", s1);
 		
 	//	RequestDispatcher rd=request.getRequestDispatcher("StatusMediator.jsp");  
 		//servlet2 is the url-pattern of the second servlet  
 		  
 		//rd.forward(request, response);
 		
-		response.sendRedirect("Welcome_user.jsp");
+		//response.sendRedirect("Welcome_user.jsp");
 	
 		
 	

@@ -59,6 +59,10 @@ public class getUserStoryController extends HttpServlet {
 		String status="New";
 		//System.out.println(s);
 		
+		
+		
+		
+		
 		UserStoryDao dao=new UserStoryDao();
 		
 		try {
@@ -70,6 +74,8 @@ public class getUserStoryController extends HttpServlet {
 //			}
 //			else
 //			{
+			String res=backlog+"\n"+release+"\n"+epic+"\n"+"Feature : "+feature+"\n"+"Story : "+story+"\n"+"Acceptance : "+acceptance+" ";
+			
 				dao.add(name_story,backlog,release,epic,feature,story,acceptance,points,assign_to,status);
 				HttpSession session = request.getSession();
 //				
@@ -82,15 +88,29 @@ public class getUserStoryController extends HttpServlet {
 //				
 			
 			MyWorkDaoNew m1=new MyWorkDaoNew();
+			
 			String mail= ""+m1.get_mail(Admin_name);
 				System.out.println(mail+"gmail of admin");
-			String fmail=""+m1.get(mail);
-				System.out.println(fmail+"final test");
-			request.setAttribute("Atask", fmail);
+			
+				String fmail=""+m1.get(mail);
+				System.out.println("abc"+fmail+"final test");
+		
+//				request.setAttribute("fmailf", fmail);
+//				//email
+//				request.setAttribute("sres", res);
+//				request.setAttribute("sname", name_story);
+//				request.setAttribute("assign2", assign_to);
+				// HttpSession session = request.getSession();
+			     // session.setAttribute("assign2",assign_to);
+			      session.setAttribute("fmailf", fmail);
+					//email
+					session.setAttribute("sres", res);
+				session.setAttribute("sname", name_story);
+				session.setAttribute("assign2", assign_to);
+					// HttpSession session = request.getSession();
 				
-			RequestDispatcher rd=request.getRequestDispatcher("Welcome_Admin.jsp");  
-			  
-			  
+				RequestDispatcher rd=request.getRequestDispatcher("smail");  
+			  			  
 			rd.forward(request, response);
 			
 				//session.setAttribute("adminname",Admin_name );
@@ -103,8 +123,7 @@ public class getUserStoryController extends HttpServlet {
 				// major change
 				//response.sendRedirect("Welcome_Admin.jsp");
 				// Main step response.sendRedirect("Welcome_Admin.jsp");
-				
-			//}
+							//}
 		}
 		catch (Exception e) {
 			// TODO: handle exception

@@ -82,7 +82,7 @@ try {
 		//request.getRequestDispatcher("Welcome_user.jsp").forward(request,response);
 		System.out.println("aaaaaaabbbbbbaaaaaaaaaa");
 		RequestDispatcher rd=request.getRequestDispatcher("NWC");  
-		//servlet2 is the url-pattern of the second servlet  
+		
 		  
 		rd.forward(request, response);
 		//String omg=(String) session.getAttribute("test");

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.saketh.java.dao.BeanTest;
 import com.saketh.java.dao.HistoryDao;
 
 /**
@@ -21,10 +22,10 @@ public class getHistoryController extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getHistoryController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+//    public getHistoryController() {
+//        super();
+//        // TODO Auto-generated constructor stub
+//    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -46,22 +47,39 @@ public class getHistoryController extends HttpServlet {
 	//System.out.println(s+"uiuiuiui232323232aaa");
 	
 		HistoryDao dao=new HistoryDao();
-		String nothing="";
+		//String nothing="";
 		try {
-			String fres=dao.check(nothing);
+			String fres=dao.check();
+			
+			//<script id="helper" data-name="helper" src="helper.js"></script>
 			
 			System.out.println(fres+"8989");
 			request.setAttribute("fres", fres);
-			RequestDispatcher rd=request.getRequestDispatcher("HistoryMediator.jsp");  
-			  
+			
+			
+			
+			BeanTest bt=new BeanTest();
+			bt.setFres(fres);
+			
+		//	System.out.print("fromt "+bt.getFres()+"7878878898");
+			
+			//request.getSession().setAttribute("fres", fres);
+		//	RequestDispatcher rd=request.getRequestDispatcher("HistoryMediator.jsp");  
+			try
+			{
+			RequestDispatcher rd=request.getRequestDispatcher("dummy5.jsp");  	  
 			  
 			rd.forward(request, response);
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
 			
 			
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}catch (Exception e1) {
+		
+			System.out.println(e1);
 		}
 	// last send redirect to login 
 	}

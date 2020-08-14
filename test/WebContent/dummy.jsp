@@ -31,10 +31,10 @@
 <body>
 
 
-<form action="grave">
-<input type="submit" value="submit">
-</form>
-${name }89
+<!-- <form action="grave"> -->
+<!-- <input type="submit" value="submit"> -->
+<!-- </form> -->
+<%-- ${name }89 --%>
 
 
 
