@@ -187,7 +187,7 @@ Clear floats after the columns
 			<%--          var uname2 = <%=request.getAttribute("uname2")%>;  --%>
 			//        alert(uname2+"gg");
 			       
-			       window.alert("Selected Text: " + selectedText + " Value: " + selectedValue);
+			     // window.alert("Selected Text: " + selectedText + " Value: " + selectedValue);
 			    }
 // 			    var un='${uname2}';  
 // 			  //  alert(un+"uname");
