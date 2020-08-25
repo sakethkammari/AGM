@@ -1,26 +1,27 @@
 package com.saketh.java;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.saketh.java.dao.Meeting_Dao;
 
 /**
- * Servlet implementation class getfiledataController
+ * Servlet implementation class getUserMeetingController
  */
-@WebServlet("/filedataController")
-public class getfiledataController extends HttpServlet {
+@WebServlet("/UserMeetingController")
+public class getUserMeetingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getfiledataController() {
+    public getUserMeetingController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,6 +32,19 @@ public class getfiledataController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		Meeting_Dao dao=new Meeting_Dao();
+		LocalDate l=LocalDate.now();
+		String s=""+l;
+		String res="";
+		try {
+			 res=dao.get_note(s);
+			 System.out.println("09"+res+"chill ");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("res", res);
+		response.sendRedirect("Welcome_user.jsp");
 	}
 
 	/**
@@ -38,27 +52,7 @@ public class getfiledataController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		
-		String res=request.getParameter("filedata");
-		System.out.println("9090099090");
-		System.out.println(res+"23232");
-		
-		
-		//request.setAttribute("filedata", res);
-			
-		HttpSession session=request.getSession(); 
-		
-		session.setAttribute("fdata0", res);
-		
-		//response.sendRedirect("Welcome_Admin.jsp");
-		RequestDispatcher rd=request.getRequestDispatcher("FDM");  
-		 
-		  
-		rd.forward(request, response);
-		
-		
-		
+		doGet(request, response);
 	}
 
 }

@@ -2,6 +2,7 @@ package Log4j;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 
 public class log4jDemo {
 	
@@ -14,8 +15,9 @@ public class log4jDemo {
 		logger.error("this is info error");
 		logger.info("this is info info");
 		logger.fatal("this is info fatal");
-		
-		System.out.println("COMPLETE");
+		String logT="loggtt";
+		ThreadContext.put("ROUTINGKEY", logT);
+		 System.out.println("COMPLETE");
 	}
 
 }

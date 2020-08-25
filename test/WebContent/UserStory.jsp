@@ -16,7 +16,7 @@
 <style>
 .container
 {
-	background-color: yellow;
+	background-color: white;
 }
 </style>
 </head>
@@ -29,7 +29,7 @@
       <label for="usr">Name of story*</label>
       <input type="text"  class="form-control" name="usr"> 
     </div>
-    
+    <h2><span style="color:red;">${nameerror1}</span></h2>
  </div>
  </div>
  <div class="row">
@@ -40,6 +40,7 @@
     </div>
     </div>
  </div>
+  <h2><span style="color:red;">${backlogerror1}</span></h2>
  
  <div class="row">
  	<div class="col-md-6">
@@ -48,14 +49,14 @@
       <input type="text" class="form-control" name="release">
     </div>	
  	</div>
- 	
+ <h3>	 <span style="color:red;">${releaseerror1}</span> </h3>
  	<div class="col-md-6">
        <div class="form-group">
       <label for="epic">Epic*</label>
       <input type="text" class="form-control" name="epic">
     </div>
  	</div>
- 	
+ 	 <h3><span style="color:red;">${epicerror1}</span></h3>
  </div>
   
  
@@ -68,7 +69,7 @@
  </div>
  </div>
  
-
+ <h2><span style="color:red;">${featureerror1}</span></h2>
  
  <div class="row-md-12">
  	<div clas="col-md-8">
@@ -78,7 +79,7 @@
     </div>
     </div>
     </div>
-    
+    <h2> <span style="color:red;">${storyerror1}</span></h2>
     
     <div class="row">
     <div class="col-md-6">
@@ -88,14 +89,14 @@
     </div>
     </div>
     </div>
-   
+   <h2> <span style="color:red;">${acceptanceerror1}</span></h2>
     
     <div class="row">
     <div class="form-group">
       <label for="storypoint">story points *</label>
       <input type="text" class="form-control" name="storypoint">
     </div>
-    
+   <h2>  <span style="color:red;">${pointserror1}</span></h2>
     
 <!--    	       <div class="dropdown"> -->
 <!--     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Status -->
@@ -140,7 +141,7 @@
     <div class="col-md-4">
       <div>
 <!--        <button type="submit" class="btn btn-primary"><h3>Logout</h3></button> -->
-    	<a class="btn btn-primary" href="LogoutCon" role="button">Logout</a>
+<!--     	<a class="btn btn-primary" href="LogoutCon" role="button">Logout</a> -->
     </div>
     </div>
      

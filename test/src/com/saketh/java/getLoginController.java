@@ -34,9 +34,9 @@ public class getLoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-	//System.out.println("polam mei seeeds came");
+	System.out.println("get login called okay ");
 	PrintWriter out=response.getWriter();
-	out.println("yoyoyoyoyo");
+	//out.println("yoyoyoyoyo");
 	
 	
 	String uname=request.getParameter("t1")+"";
@@ -46,27 +46,9 @@ public class getLoginController extends HttpServlet {
 	LoginDao dao=new LoginDao();
 	//  02
 try {
-	if(dao.check(uname, upass,1))
-	{
-		System.out.println("inside 1 congo");
-
-	//	session.setAttribute("adminname",  );
-		session.setAttribute("adminname", uname );
-	//	response.sendRedirect("Welcome_Admin.jsp");
-		RequestDispatcher rd=request.getRequestDispatcher("UserStoryController");  
-		  
-		  
-		rd.forward(request, response);
-	
-		
-		//response.sendRedirect("Welcome_Admin.jsp");
-		
-		//response.sendRedirect("UserStory.jsp");
-		
-	}
-      else if(dao.check(uname, upass))
+	 if(dao.check(uname, upass))
 	  {
-	 System.out.println("inside 2");	
+	 System.out.println("inside 22222");	
 		
 		session.setAttribute("username1", uname);
 
@@ -93,11 +75,30 @@ try {
 		
 		
 	}
+else if(dao.checka(uname, upass,1))
+	{
+		System.out.println("inside 1 congo");
+
+	//	session.setAttribute("adminname",  );
+		session.setAttribute("adminname", uname );
+	//	response.sendRedirect("Welcome_Admin.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("UserStoryController");  
+		  
+		  
+		rd.forward(request, response);
+	
+		
+		//response.sendRedirect("Welcome_Admin.jsp");
+		
+		//response.sendRedirect("UserStory.jsp");
+		
+	}
+	
 	else
 	{
 		request.setAttribute("error", "INVALID CREDENTIALS : ");
 		System.out.println(" inside else if bro");
-		out.print("invalid credentials plz login with valid ");
+		//out.print("invalid credentials plz login with valid ");
 		//response.sendRedirect("index.jsp");
 		  request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

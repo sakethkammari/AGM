@@ -49,6 +49,7 @@ public class NewWorkController extends HttpServlet {
 			String fr=d.get(mail);
 			System.out.println("frfrfrfrf"+"\n"+fr+"\n");
 			request.setAttribute("fr", fr);
+			request.setAttribute("funame",s1);
 			RequestDispatcher rd = request.getRequestDispatcher("Welcome_user.jsp");  
 			
 			  

@@ -90,6 +90,36 @@
 	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 	crossorigin="anonymous">
 <style>
+
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > img {
+    width: 100px;
+}
+
+.loader.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 .row .r1 {
 	width: 300px;
 	border: 15px solid green;
@@ -111,9 +141,10 @@
 
 body {
 	background-color: cyan;
+	padding:10px;
 }
 
-Clear floats after the columns 
+
  .row:after {
 	content: "";
 	display: table;
@@ -127,6 +158,20 @@ Clear floats after the columns
 </style>
 </head>
 <body>
+
+<div class="loader">
+	 <img src="https://miro.medium.com/max/978/0*cWpsf9D3g346Va20.gif" alt="Loading..." />
+</div>
+
+
+<!-- <div id="loading"></div> -->
+<!-- <form action="/StatusController"> -->
+<!-- 						<input type="submit" name="myField" id="myField" value=" " /> -->
+<!-- </form> -->
+
+
+
+
 	<% 
 
 
@@ -145,18 +190,18 @@ Clear floats after the columns
 
 
 
-	<% 
+<%-- 	<%  --%>
 
 
 
-//if(session.getAttribute("username")==null)
-	//	{
-//			out.println("dont ever try this dude");
+<!-- // //if(session.getAttribute("username")==null) -->
+<!-- // 	//	{ -->
+<!-- // //			out.println("dont ever try this dude"); -->
 			
-		//	response.sendRedirect("index.jsp");
-		//}
+<!-- // 		//	response.sendRedirect("index.jsp"); -->
+<!-- // 		//} -->
 
-%>
+<%-- %> --%>
 	<div class="center">
 		<h2>Agile Meeting Dashboard</h2>
 	</div>
@@ -168,7 +213,6 @@ Clear floats after the columns
 			<!--   <form action="StatusController" method="post">  -->
 			<!--      	<button type="submit" class="btn btn-primary">Update Status</button> -->
 
-
 			<select id="ddlFruits">
 				<!-- 			    <option value=""></option> -->
 				<option value="1">In Progress</option>
@@ -177,11 +221,38 @@ Clear floats after the columns
 			</select> <input type="button" value="UPDATE:"
 				onclick="GetSelectedTextValue()" />
 
-			<script type="text/javascript">
+           
+
+
+
+			<script id="helper1" data-name1='${funame}'>
+			//importClass(com.saketh.java.dao.yournamespace.StatusDao);
+		 var funame = document.getElementById("helper1").getAttribute("data-name1");
+			window.alert(funame);
+			console.log(funame);
 			    function GetSelectedTextValue() {
 			        var ddlFruits = document.getElementById("ddlFruits");
 			        var selectedText = ddlFruits.options[ddlFruits.selectedIndex].innerHTML;
 			        var selectedValue = ddlFruits.value;
+			        
+			        
+			      //  var sts=new com.saketh.java.dao.StatusDao();
+			     //   var c=sts.update_sts(selectedText,funame);
+			       // console.log(c);
+			       	//	<input type="hidden" name="myField" id="myField" value='selectedText' />
+			       
+			       
+			       
+					//document.getElementById('myField').value =selectedText;
+			       
+// 			        var funame = document.getElementById("helper").getAttribute("data-name");
+			    	//var rows = new yournamespace.StatusDao(selectedText,funame);
+			    	
+			        //window.alert(fuame+"88"+rows);
+			        
+			        // 			        <form action="">
+// 			        <input type="hidden" name="myField" id="myField" value='selectedText' />
+// 			        </form>
 			        
 			//         var uname2='${uname2}';
 			<%--          var uname2 = <%=request.getAttribute("uname2")%>;  --%>
@@ -197,7 +268,7 @@ Clear floats after the columns
 
 
 
-			<!--       </form>  -->
+			      
 		</div>
 		<div class="column" style="background-color: #ccc;">
 			<form action="LogoutCon" method="post">
@@ -226,7 +297,7 @@ Clear floats after the columns
 	</div>
 
 	<div>
-		<form action="filedataController">
+		<form action="UserMeetingController">
 			<div class="row">
 				<div class="column">
 					<button type="submit" class="btn btn-primary">View Meeting
@@ -239,6 +310,8 @@ Clear floats after the columns
 		</form>
 
 	</div>
+	
+	
 
 	<!-- <script> -->
 
@@ -251,9 +324,13 @@ Clear floats after the columns
 	<!-- //     } -->
 
 	<!-- </script> -->
-
-	<textarea name="filetextarea" rows="10" cols="50"></textarea>
-
+	<textarea name="filetextarea" id="fdata" rows="10" cols="50"></textarea>
+	<script id="helper01" data-name01='${res}'>
+	 var fr1 = document.getElementById("helper01").getAttribute("data-name01");
+	 console.log("sss"+fr1+" okay finally");
+	 window.alert(fr1+"fr11");
+			document.getElementById('fdata').append(fr1);
+	</script>
 
 <script id="helper" data-name='${fr}'>
 
@@ -286,7 +363,8 @@ window.onload = function()
 
 
  var fr = document.getElementById("helper").getAttribute("data-name");
-   window.alert(fr+"frrrrrr66666");
+ console.log(fr);  
+ //window.alert(fr+"frrrrrr66666");
     var test=fr.split(/\r?\n/);
     
 	var i;
@@ -304,12 +382,70 @@ window.onload = function()
     			addcontrols+="</tr>";
     			$(".tr1 table tbody").append(addcontrols);
 		}
-    			
+    	
+	//var preloader = document.getElementById("loading");
+	//preloader.style.display = 'none';
 };
 
 
 
+
 </script>
+
+
+
+<!-- <script> -->
+<!-- // 		var preloader = document.getElementById("loading"); -->
+<!-- // 		function mypreloader(){ -->
+<!-- // 			preloader.style.display = 'none'; -->
+<!-- // 		}; -->
+<!-- <!-- </script> --> -->
+
+ 
+    <script type="text/javascript">
+    window.addEventListener("load", function () {
+        const loader = document.querySelector(".loader");
+        loader.className += " hidden"; 
+    });
+	</script>
+
+
+
+<script>
+var test="body"; 
+
+function showNotification()
+{
+	const notification=new Notification("message from saketh",{
+		body: test,
+		icon: "https://media.glassdoor.com/sqll/937465/vsoft-technologies-squarelogo-1436855384554.png"
+		
+		
+	});
+	
+	notification.onclick= (e) => {
+	window.location.href="https://google.com";
+	};
+}
+
+console.log(Notification.permission);
+
+if(Notification.permission === "granted")
+	{
+		//window.alert("congo");
+		showNotification();
+	}
+else if(Notification.permission != "denied")
+	{
+ Notification.requestPermission().then(permission => {
+		if(Notification.permission === "granted")
+			showNotification();
+		//console.log(permission);
+	});	
+	}
+</script>
+
+
 
 
 </body>

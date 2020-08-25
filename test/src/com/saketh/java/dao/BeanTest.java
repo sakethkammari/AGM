@@ -2,19 +2,21 @@ package com.saketh.java.dao;
 
 public class BeanTest {
 	
-	static String fres="";
+	public String k="";
 
-	public static String getFres() {
-		return fres;
+	public  String getk() {
+		System.out.println(k+"the inside k");
+		return k;
 	}
 
-	public void setFres(String fres) {
-		this.fres = fres;
+	public void setk(String k) {
+		System.out.println(k+"bean k k k k");
+		this.k = k;
 	}
 
-	@Override
-	public String toString() {
-		return "BeanTest [fres=" + fres + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "BeanTest [k=" + k + "]";
+//	}
 
 }

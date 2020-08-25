@@ -30,8 +30,13 @@ public class getStatusController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	
+		System.out.println("sts controler called");
+		String s=request.getParameter("myField");
+		System.out.println(s+"yesssss777777777777777777777777777777777777");
+		//response.sendRedirect("Welcome_user.jsp");
+		
 	}
 
 	/**
@@ -41,7 +46,7 @@ public class getStatusController extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 	
-		StatusDao dao=new StatusDao();
+		//StatusDao dao=new StatusDao();
 	
 		
 		

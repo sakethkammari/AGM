@@ -42,7 +42,7 @@ public class Logout extends HttpServlet {
 		session.removeAttribute("username");
 		session.invalidate();
 	//	out.println("0909090090");
-		response.sendRedirect("index.html");
+		response.sendRedirect("index.jsp");
 		System.out.println("dddd");
 		
 		

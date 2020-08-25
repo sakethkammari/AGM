@@ -1,7 +1,6 @@
 package com.saketh.filter;
 
 import java.io.IOException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,15 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet Filter implementation class getRegistrationFilter
+ * Servlet Filter implementation class NameFilter
  */
-@WebFilter("/getRegistration1")
-public class getRegistrationFilter implements Filter {
+@WebFilter("/getLogin")
+public class NameFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public getRegistrationFilter() {
+    public NameFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -40,33 +39,21 @@ public class getRegistrationFilter implements Filter {
 		// place your code here
 
 		// pass the request along the filter chain
-		
+		System.out.println("filetr csalled okay");
 		HttpServletRequest req=(HttpServletRequest)request;
 		HttpServletResponse res=(HttpServletResponse)response;
+		String name=(String)req.getParameter("t1");
+		String pass=(String)req.getParameter("t2");
 		
-		String name=(String)req.getParameter("v11");
-		System.out.println(name);
-		try
-		{
-		if(name.length()>3)
-		{
-			chain.doFilter(request, response);
-		}
-		else if(name.length()<3 || name.length()>15 || name=="")
-		{
-			System.out.println("inside else if");
-			req.setAttribute("nameerror", "please re-enter name properly ( length >3 and <15)");
-			System.out.println("inavalid name format");
-//			res.sendRedirect("register.jsp");
-			  req.getRequestDispatcher("register.jsp").forward(request, response);
-			
-		}
+		System.out.println(name+"name : pass"+pass);
 		
-		}
-		catch(Exception e)
+		if(name=="" || pass=="")
 		{
-			System.out.println(e);
+			req.setAttribute("nameerror", "Name or Password cant be null");
+			req.getRequestDispatcher("index.jsp").forward(request, response);
 		}
+		else
+		chain.doFilter(request, response);
 	}
 
 	/**

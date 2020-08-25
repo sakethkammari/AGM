@@ -15,15 +15,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet Filter implementation class RegistrationPasswordFilter
+ * Servlet Filter implementation class PasswordFilter
  */
-@WebFilter("/getRegistration1")
-public class RegistrationPasswordFilter implements Filter {
+@WebFilter("/getLoginnull")
+public class PasswordFilter implements Filter {
 
     /**
      * Default constructor. 
      */
-    public RegistrationPasswordFilter() {
+    public PasswordFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -42,19 +42,17 @@ public class RegistrationPasswordFilter implements Filter {
 		// place your code here
 
 		// pass the request along the filter chain
-		//chain.doFilter(request, response);
-		
 		HttpServletRequest req=(HttpServletRequest)request;
 		HttpServletResponse res=(HttpServletResponse)response;
 		
 		
-		String password=(String)req.getParameter("v21");
-		if(password=="")
+		String password=(String)req.getParameter("t2");
+		//if(password=="")
 		{
-		  req.setAttribute("passerror", "Password cant be Null");	
-		  req.getRequestDispatcher("register.jsp").forward(request, response);
+		  //req.setAttribute("passerror", "Password cant be Null");	
+		  //return;
 		}
-		else
+		//else
 		{
 		//System.out.println(name);
 		try
@@ -74,11 +72,11 @@ public class RegistrationPasswordFilter implements Filter {
 		else 
 		{
 			//System.out.println("inside else if");
-			req.setAttribute("passerror", "Your Password is Weak ,  please enter as Eg: Abcd@123  ");
+			req.setAttribute("passerror1", "Eg: Abcd@123");
 			
 			//System.out.println("inavalid name format");
 //			res.sendRedirect("register.jsp");
-			  req.getRequestDispatcher("register.jsp").forward(request, response);
+			  req.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		}
 		
@@ -88,9 +86,7 @@ public class RegistrationPasswordFilter implements Filter {
 			System.out.println(e);
 		}
 		}
-		
-		
-		
+		//chain.doFilter(request, response);
 	}
 
 	/**
@@ -101,15 +97,3 @@ public class RegistrationPasswordFilter implements Filter {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet Filter implementation class EmailFilter
  */
-@WebFilter("/getRegistration")
+@WebFilter("/getRegistration1")
 public class EmailFilter implements Filter {
 
     /**
@@ -47,7 +47,7 @@ public class EmailFilter implements Filter {
 		HttpServletRequest req=(HttpServletRequest)request;
 		HttpServletResponse res=(HttpServletResponse)response;
 		
-		String email1=(String)req.getParameter("v3");
+		String email1=(String)req.getParameter("v31");
 		//System.out.println(name);
 		try
 		{

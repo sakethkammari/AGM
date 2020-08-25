@@ -15,7 +15,7 @@ public class StatusDao {
 			System.out.println(" inside check bro sts");
 			
 		
-			String query="update  story_cred set status='"+status1+"' where uname='"+uname1+"' ";
+	String query="update story_cred set status='"+status1+"' where assign_to=(select uemail from basic_cred where uname='"+uname1+"')";
 			Class.forName("com.mysql.jdbc.Driver");
           
          Connection con=DriverManager.getConnection(url, username, password);

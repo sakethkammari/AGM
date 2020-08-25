@@ -1,49 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 <head>
-<!-- <meta http-equiv="refresh" content="2;url=register.jsp"> -->
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-
-
 <style>
 body {
-/*    background-image: url('https://i.pinimg.com/474x/22/a7/d9/22a7d900e789f94176d15ac206ffcbe6.jpg');  */
-background-color:skyblue;
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 370px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
 }
 </style>
-
 </head>
 <body>
 
-<% 
-
-response.setHeader("Cache-Control","no-cache ,no-store,must-revalidate");
-response.setHeader("pragma","no-cache");
-response.setHeader("Expires","0");
-
-%>
-
-<% 
-		String name=(String)request.getAttribute("nameerror");
-		System.out.println(name+"00");
-%>
-
-${nameerror} 
-<h2>please enter your credentials </h2>
-<form action="getRegistration">
- enter Name: <input type="text" name="v1" ></br>
- enter password :<input type="text" name="v2"></br>
-  enter E-Mail :  <input type="text" name="v3"></br>
-  
-  <span style="color:red;">${nameerror}</span>
-   <span style="color:red;">${passerror}</span>
-      <span style="color:red;">${mailerror}</span>
- <input type="submit">
-
-</form>
-
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Register Yourself!</h3>
+        <div class="container">
+        
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+<!--                         <form id="login-form" class="form" action="" method="post"> -->
+                            <h3 class="text-center text-info">Register</h3>
+                      
+                            <form action="getRegistration1" method="post">
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="v11"  class="form-control">
+                                 <span style="color:red;">${nameerror}</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="pass-info">Password:</label><br>
+                                <input type="text" name="v21" class="form-control">
+                                 <span style="color:red;">${passerror}</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="text" class="mail-info">Email:</label><br>
+                                <input type="text" name="v31"  class="form-control">
+                                 <span style="color:red;">${mailerror}</span>
+                            </div>
+                      
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md">
+                            </div>
+<!--                             </form> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+    

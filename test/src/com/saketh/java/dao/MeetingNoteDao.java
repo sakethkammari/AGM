@@ -1,6 +1,7 @@
 package com.saketh.java.dao;
 import java.sql.*;
 public class MeetingNoteDao {
+	// not in use
 
 	String db="agm_db";
 	String username="root";

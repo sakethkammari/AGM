@@ -23,6 +23,37 @@
 
 
 <style>
+
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > img {
+    width: 100px;
+}
+
+.loader.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
 .row .r1 {
 	width: 300px;
 	border: 15px solid green;
@@ -80,7 +111,7 @@ body {
 
 
 
-// $(document).ready(function() {
+	// $(document).ready(function() {
 
 		window.onload = function()
 		{
@@ -106,10 +137,26 @@ body {
     			$(".tr1 table tbody").append(addcontrols);
     
 		}
+	
+	
+	
 };
 
 
 
+</script>
+
+<script type="text/javascript">
+
+    window.addEventListener("load", function () {
+    	
+    	
+        const loader = document.querySelector(".loader");
+        loader.className += " hidden"; 
+    		
+    		
+    	});
+    
 </script>
 
 
@@ -123,6 +170,11 @@ body {
 
 </head>
 <body>
+
+
+<div class="loader">
+	 <img src="https://miro.medium.com/max/978/0*cWpsf9D3g346Va20.gif" alt="Loading..." />
+</div>
 
 	<% 
 
@@ -217,8 +269,8 @@ body {
 
 					<form action="filedataController" method="post">
 
-						<textarea id="filedata" name="filedata" rows="20" cols="50">
-    </textarea>
+						<textarea id="filedata" name="filedata" rows="20" cols="100">
+    </textarea>	
 
 
 						<button type="submit" class="btn btn-primary" id="but1">submit</button>

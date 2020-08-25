@@ -10,14 +10,20 @@ public class datetest {
 	    return LocalDate.parse(date).plusDays(1).toString();
 	  }
 	public static void main(String[] args) {
+		LocalDate l1=LocalDate.now();
+		System.out.println(l1+"datatat");
 		// TODO Auto-generated method stub
 
+		//LocalDate l=LocalDate.now();
 			//LocalDate l=LocalDate.now().plusDays(2);
 		
 			//System.out.println(l);
 		
-		String s="2020-08-13";
-		String s1="2020-09-15";
+	//	String s="2020-08-13";
+		//String s1="2020-09-15";
+		String s=""+LocalDate.now();
+		final String s1=""+LocalDate.now().plusDays(3);
+		
 		LocalDate date1 = LocalDate.parse(s);
 
 		LocalDate date2 = LocalDate.parse(s1);

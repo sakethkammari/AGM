@@ -31,16 +31,18 @@
 <!-- <a href="javascript:void(0)" onclick="start()">startt</a> -->
 <!-- <button onclick="start()">startt</button> -->
 <script>
+var test="body"; 
+
 function showNotification()
 {
 	const notification=new Notification("message from saketh",{
-		body: "inside body dude",
+		body: test,
 		icon: "https://media.glassdoor.com/sqll/937465/vsoft-technologies-squarelogo-1436855384554.png"
 		
 		
 	});
 	
-	notification.onclick= (e) =>{
+     notification.onclick= (e) => {
 		window.location.href="https://google.com";
 	};
 }

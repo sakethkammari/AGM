@@ -11,6 +11,7 @@ public class AddTest {
 		//fail("Not yet implemented");
 	
 		JunitTestDemo junit=new JunitTestDemo();
+		
 		int res=junit.add(100, 200);
 		assertEquals(300,res);
 	

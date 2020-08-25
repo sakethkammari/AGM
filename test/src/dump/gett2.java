@@ -1,26 +1,23 @@
-package com.saketh.java;
+package dump;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class getfiledataController
+ * Servlet implementation class gett2
  */
-@WebServlet("/filedataController")
-public class getfiledataController extends HttpServlet {
+@WebServlet("/t210")
+public class gett2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getfiledataController() {
+    public gett2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,6 +28,13 @@ public class getfiledataController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+
+	System.out.println("okay!1q");
+	String s1=request.getParameter("tx1");
+	String s2=request.getParameter("tx2");
+	System.out.println(s1+"8888"+s2);
+	//response.sendRedirect("autoclick.jsp");
+	 request.getRequestDispatcher("autoclick.jsp").forward(request, response);
 	}
 
 	/**
@@ -38,27 +42,7 @@ public class getfiledataController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
-		
-		String res=request.getParameter("filedata");
-		System.out.println("9090099090");
-		System.out.println(res+"23232");
-		
-		
-		//request.setAttribute("filedata", res);
-			
-		HttpSession session=request.getSession(); 
-		
-		session.setAttribute("fdata0", res);
-		
-		//response.sendRedirect("Welcome_Admin.jsp");
-		RequestDispatcher rd=request.getRequestDispatcher("FDM");  
-		 
-		  
-		rd.forward(request, response);
-		
-		
-		
+		doGet(request, response);
 	}
 
 }
